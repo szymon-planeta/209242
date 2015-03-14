@@ -3,6 +3,7 @@
 #include <iostream>
 #include <fstream>
 #include <cmath>
+#include "stdlib.h"
 
 /*!
  *\file
@@ -27,8 +28,7 @@ public:
    *\param[in] data_amount - ilosc wynikowych danych podawana jako potega liczby 10
    *\return plik .csv z czasami poszczegolnych pomiarow oraz ilosc testowanych danych  
    */
-  void analyze (int repeat,int data_amount); 
-  
+  void analyze (int repeat,int data_amount);
 };
 
 #endif

@@ -7,7 +7,7 @@
 void benchmark::analyze (int repeat,int data_amount)
 {
   float *tab = new float [repeat];
-  std::fstream file("data.csv",std::ios::out | std::ios::app);
+  std::fstream file("data.dat",std::ios::out);
   if ( file.fail() == true )
     {
       std::cerr <<"Failed to write to file ";
@@ -28,11 +28,12 @@ void benchmark::analyze (int repeat,int data_amount)
 	    }
 	  
 	  tmp=tmp/repeat;
-	  file<<std::endl<<tmp<<","<<pow(10,j);
+	  file<<std::endl<<tmp<<" "<<pow(10,j);
         
 	}
     }
   delete [] tab;
+  system("gnuplot plot.plt");
 }
 
 
