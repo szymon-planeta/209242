@@ -1,0 +1,24 @@
+ 
+/*!
+\page Sprawozdanie
+\date 11.03.2015r.
+\version 0.1
+
+\section Zadanie
+
+	 Celem ćwiczenia było stworzenie programu benchmarkującego , który dla wybranych danych będzie zliczał średni czas wykonania dowolnego algorytmu  w tym przypadku mnożenia elementów tablicy przez 2. Należało również stworzyć program generujący losowe liczby.
+
+\section Wyniki
+
+Dla dziesięciu milionów liczb program zwraca 7 danych wyjściowych ( zgodnie z algorytmem 10^n , gdzie n jest równocześnie ilością zwracanych czasów oraz maxymalną liczbą danych dla jakiej przeprowadzany był test
+
+Na podstawie otrzymanych danych mamy :
+
+\image latex 1.jpg
+
+\section Podsumowanie
+
+	 Wykres dodany do dokumentacji z niewiadomych względów nie jest wyświetlany poprawnie ( dodano sprawozdanie również w formacie pdf).
+	 Zgodnie z przewidywaniami złożoność obliczeniowa jest liniowa , jedyną rzeczą która zwraca uwagę jest fakt iż czas wykonania jednej operacji jest dłuższy od czasu wykonania 10 operacji. Dla wiekszej ilości danych wyniki są poprawne
+Wydaje się , że zbyt mało danych jest obecnych w środkowej częsci wykresu co powinno być zostać zmienione w celu poprawy jakości odbioru wykresu ( dla charakterystyki liniowej jest to akurat bez znaczenia ale .np dla logarytmicznej było by widoczne ).
+*/
