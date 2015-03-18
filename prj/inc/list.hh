@@ -33,7 +33,7 @@ class list: public benchmark
     }
   };
   
-public:
+private:
   /*!
    * \brief Pole będące pierwszym wskaźnikiem na elementy stosu
    */

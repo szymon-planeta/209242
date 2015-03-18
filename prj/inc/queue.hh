@@ -63,10 +63,7 @@ public:
   /*!
    *\brief Metoda test() realizuje operacje zapelniania stosu ustalonymi danymi, czas będzie zliczany 
    */
-  void test(int length)
-  {
-    push(length);
-  }
+  void test(unsigned long int length);
 };
 
 #endif
