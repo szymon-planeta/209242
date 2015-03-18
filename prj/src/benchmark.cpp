@@ -33,6 +33,7 @@ void benchmark::analyze (int repeat,int data_amount)
 	}
     }
   delete [] tab;
+  system("gnuplot plot.plt");
 }
 
 
