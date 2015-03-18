@@ -1,3 +1,5 @@
 warning: The selected output language "polish" has not been updated
 since release 1.8.2.  As a result some sentences may appear in English.
 
+/home/jakub/PAMSI/prj/inc/list.hh:60: warning: Unsupported xml/html tag <DOKO> found
+/home/jakub/PAMSI/prj/inc/list.hh:60: warning: Unsupported xml/html tag <DOKO> found

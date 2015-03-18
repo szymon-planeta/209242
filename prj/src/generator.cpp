@@ -6,7 +6,7 @@
 * 
 */
 
-bool data_generator (int data_amount)
+bool data_generator (unsigned long int data_amount)
 {
   srand( time (NULL) ) ; //punkt startowy jako czas na komputerze w celu generowania coraz to nowych liczb
  
@@ -18,9 +18,9 @@ bool data_generator (int data_amount)
     }
   else
     {
-      for(int i=0;i<data_amount;i++)
+      for(unsigned long int i=0;i<data_amount;i++)
 	{
-	  double random_number=rand() %1000 + 0; // liczby od 0 do 1000
+	  double random_number=rand() %100 + 0; // liczby od 0 do 100
 	  file << random_number << std::endl ;
 	}
       file.close();

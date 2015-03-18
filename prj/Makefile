@@ -1,16 +1,20 @@
  CPPFLAGS= -c -g -Iinc -Wall -pedantic
 
-__start__: tabx2
-	./tabx2 
+__start__: structures
+	./structures 
 obj:
 	mkdir obj
 
-tabx2: obj/main.o obj/tabx2.o obj/benchmark.o obj/generator.o
-	g++ -Wall -pedantic -o tabx2 obj/main.o obj/tabx2.o obj/benchmark.o obj/generator.o
-obj/main.o: src/main.cpp inc/tabx2.hh
+structures: obj/main.o obj/list.o obj/stack.o obj/queue.o obj/benchmark.o obj/generator.o
+	g++ -Wall -pedantic -o structures obj/main.o obj/list.o obj/queue.o obj/stack.o obj/benchmark.o obj/generator.o
+obj/main.o: src/main.cpp inc/list.hh inc/stack.hh
 	g++ ${CPPFLAGS} -o obj/main.o src/main.cpp
-obj/tabx2.o: src/tabx2.cpp inc/tabx2.hh
-	g++ ${CPPFLAGS} -o obj/tabx2.o src/tabx2.cpp
+obj/list.o: src/list.cpp inc/list.hh inc/queue.hh inc/stack.hh
+	g++ ${CPPFLAGS} -o obj/list.o src/list.cpp
+obj/stack.o: src/stack.cpp inc/stack.hh
+	g++ ${CPPFLAGS} -o obj/stack.o src/stack.cpp
+obj/queue.o: src/queue.cpp inc/queue.hh
+	g++ ${CPPFLAGS} -o obj/queue.o src/queue.cpp
 obj/benchmark.o: src/benchmark.cpp inc/benchmark.hh
 	g++ ${CPPFLAGS} -o obj/benchmark.o src/benchmark.cpp
 obj/generator.o: src/generator.cpp inc/generator.hh

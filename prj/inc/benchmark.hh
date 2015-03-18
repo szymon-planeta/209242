@@ -13,7 +13,7 @@ class benchmark
  /*!
    *\brief Metoda test funkcja wirtualna , której czas działania ma być aproksymowany przez metoda analyze() 
    */
-  virtual void test(int length)=0;
+  virtual void test(unsigned long int length)=0;
 
 public:
 
