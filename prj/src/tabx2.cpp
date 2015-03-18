@@ -4,6 +4,12 @@
 * \brief Deklaracja klasy tabx2
 * 
 */
+
+  /*!
+   *\brief
+   * Tworzy tablice alokowana dynamicznie o pojemnosci wybranej przez uzytkownika , umozliwia wykonywanie mnozenia przez 2 wszystkich elementow tablicy
+   */
+
 void tabx2::test(int length){
 
   for (int i=0 ; i < length ; i++)
