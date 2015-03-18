@@ -7,9 +7,9 @@ obj:
 
 structures: obj/main.o obj/list.o obj/stack.o obj/queue.o obj/benchmark.o obj/generator.o
 	g++ -Wall -pedantic -o structures obj/main.o obj/list.o obj/queue.o obj/stack.o obj/benchmark.o obj/generator.o
-obj/main.o: src/main.cpp inc/list.hh inc/stack.hh
+obj/main.o: src/main.cpp inc/list.hh inc/stack.hh inc/queue.hh
 	g++ ${CPPFLAGS} -o obj/main.o src/main.cpp
-obj/list.o: src/list.cpp inc/list.hh inc/queue.hh inc/stack.hh
+obj/list.o: src/list.cpp inc/list.hh 
 	g++ ${CPPFLAGS} -o obj/list.o src/list.cpp
 obj/stack.o: src/stack.cpp inc/stack.hh
 	g++ ${CPPFLAGS} -o obj/stack.o src/stack.cpp

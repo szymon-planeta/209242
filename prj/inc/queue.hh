@@ -6,6 +6,7 @@
 #include <fstream>
 #include <cstdlib>
 #include "benchmark.hh"
+#include "list.hh"
 /*!
  * \file
  * \brief Definicja klasy stack
@@ -17,37 +18,28 @@
 class queue: public benchmark
 {
 
-  struct node
-  {
-  /*!
-   * \brief Pole do którego dopisywane są dane
-   */
-    int data;
-    node *next;
-    
-    node()
-    {
-      data=0;
-      next=NULL;
-    }
-  };
+
   
-public:
+private:
   /*!
-   * \brief Pole będące pierwszym wskaźnikiem na elementy stosu
+   * \brief Pole będące pierwszym wskaźnikiem na elementy kolejki
    */
   node *head;
   /*!
-   *\brief Metoda push() dodaje daną na stos 
+   * \brief Pole będące wskaźnikiem na ostatni element kolejki
+   */
+  node*tail;
+  /*!
+   *\brief Metoda push() dodaje daną do kolejki 
    *\param[in] insert - dodawany element    
    */
   void push(int insert);
     /*!
-   *\brief Metoda pop() definiuje usuwanie elementu ze stosu   
+   *\brief Metoda pop() definiuje usuwanie elementu z kolejki   
    */
 void pop();
   /*!
-   *\brief Metoda size() zwraca ilość elementów stosu
+   *\brief Metoda size() zwraca ilość elementów kolejki
    */
   unsigned size();
   
@@ -57,11 +49,12 @@ public:
    */
   queue();
   /*!
-   *\brief Destruktor usuwa wszystkie elementy ze stosu za pomocą funkcji pop
+   *\brief Destruktor usuwa wszystkie elementy z kolejki za pomocą funkcji pop
    */
   ~queue();
   /*!
-   *\brief Metoda test() realizuje operacje zapelniania stosu ustalonymi danymi, czas będzie zliczany 
+   *\brief Metoda test() realizuje operacje zapelniania kolejki ustalonymi danymi, czas będzie zliczany 
+ *\param[in] length - ilosc danych do wstawienia
    */
   void test(unsigned long int length);
 };

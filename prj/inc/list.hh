@@ -12,62 +12,62 @@
  *
  */
 
-
-
-class list: public benchmark
-{
-
   struct node
   {
-  /*!
-   * \brief Pole do którego dopisywane są dane
-   */
-
+    /*!
+     * \brief Pole do którego dopisywane są dane
+     */
     int data;
+    /*!
+     * \brief Pole będące wskaźnikiem na następny element
+     */
     node *next;
-    
+    /*!
+     * \brief Konstruktor węzła
+     */
     node()
     {
       data=0;
       next=NULL;
     }
   };
-  
+
+class list: public benchmark
+{
+
 private:
   /*!
    * \brief Pole będące pierwszym wskaźnikiem na elementy stosu
    */
-//  node *head;
+  node *head;
   /*!
    *\brief Metoda push() dodaje daną na stos 
    *\param[in] insert - dodawany element    
    */
-//  void push(int insert);
+  void push(int insert);
     /*!
    *\brief Metoda pop() definiuje usuwanie elementu ze stosu   
    */
-void pop();
+  void pop();
   /*!
    *\brief Metoda size() zwraca ilość elementów stosu
    */
-// unsigned size();
+  unsigned size();
   
 public:
   /*!
    *\brief Konstruktor inicjalizujący zmienną wskaźnikową , która domyślnie ma pokazywać na NULL
    */
-list();
+  list();
   /*!
    *\brief Destruktor usuwa wszystkie elementy ze stosu za pomocą funkcji pop
    */
   ~list();
   /*!
    *\brief Metoda test() realizuje operacje zapelniania stosu ustalonymi danymi, czas będzie zliczany 
+   *\param[in] length - ilość dodawanych lementów  
    */
-  void test(int length)
-  {
-    //  push(length);
-  }
+  void test(unsigned long int length);
 };
 
 #endif

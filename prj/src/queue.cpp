@@ -9,6 +9,7 @@
 queue::queue()
 {
   head = NULL;
+  tail=NULL;
 }
 queue::~queue()
 {
@@ -16,31 +17,24 @@ queue::~queue()
   }
 
 /*!
- *\brief Metoda push() wczytuje liczbę naturalną na stos 
+ *\brief Metoda push() wczytuje liczbę naturalną do kolejki 
 \n
 Przykład wywołania funkcji : \n
-push(10) - Na początek stosu zostanie wprowadzona liczba 10
+push(10) - Na koniec kolejki zostanie wprowadzona liczba 10
 */
 
 void queue::push(int insert)
 {
   node *tmp =new node;
   tmp->data=insert;
-  if(head==NULL)
-    {
-      head=tmp;
-    }
-  else
-    {
-      node *tmp1=head;
-      while(tmp1->next) tmp1=tmp1->next;
-      tmp1->next=tmp;
-      tmp->next=NULL;
-    }
+  if(tail) tail->next=tmp;
+  else head=tmp;
+  tail=tmp;
+
 }
 
 /*!
- *\brief Metoda pop() usuwa ze stosu ostatni element lub zwraca komunikat o błędzie w przypadku próby usnięcia elementu z pustego stosu
+ *\brief Metoda pop() usuwa z kolejki pierwszy element lub zwraca komunikat o błędzie w przypadku próby usnięcia elementu z pustej kolejki
  */
 void queue::pop()
 {
@@ -49,13 +43,14 @@ void queue::pop()
     {
       node *tmp=head;
       head=tmp->next;
+      if(!head) tail=NULL;
       delete tmp;
     }
   
 }
 
 /*!
- *\brief Metoda size() zwraca ilość elementów znajdujących się na stosie 
+ *\brief Metoda size() zwraca ilość elementów znajdujących się w kolejce 
 */
 
 unsigned queue::size()
@@ -69,7 +64,9 @@ unsigned queue::size()
     }
   return counter;
 }
-
+/*!
+ *\brief Metoda test() realizuje wczytywanie zadanej ilości danych do kolejki 
+*/
 void queue::test(unsigned long int length)
 {
   queue a;

@@ -1,21 +1,27 @@
  
 /*!
 \page Sprawozdanie
-\date 11.03.2015r.
+\date 19.03.2015r.
 \version 0.1
 \section Zadanie
-Celem ćwiczenia było stworzenie programu benchmarkującego , który dla wybranych danych będzie zliczał średni czas wykonania dowolnego algorytmu ( w tym przypadku mnożenia elementów tablicy przez 2). Należało również stworzyć program generujący losowe liczby.
-
+Celem ćwiczenie było stworzenie trzech abstrakcyjnych typów danych :\n
+-Kolejki (LIFO) \n
+-Stosu (FIFO) \n
+-Kolejki \n
+Oraz mierzenie czasu jaki potrzeba aby zapełnić każdy z nich określoną ilością danych
 \section Wyniki
 
-Dla dziesięciu milionów liczb program zwraca 7 danych wyjściowych ( zgodnie z algorytmem 10^n , gdzie n jest równocześnie ilością zwracanych czasów oraz maxymalną liczbą danych dla jakiej przeprowadzany był test
+Dla stu tysięcy operacji komputer jest w stanie przeprowadzić badane operacje w rozsądnym czasie.
+Na podstawie otrzymanych danych mamy :\n
 
-Na podstawie otrzymanych danych mamy :
 
-\image latex 1.jpg
+\image latex 1.png
+\image latex 2.png
+\image latex 3.png
 
 \section Podsumowanie
-Wykres dodany do dokumentacji z niewiadomych względów nie jest wyświetlany poprawnie ( dodano sprawozdanie również w formacie pdf).
-Zgodnie z przewidywaniami złożoność obliczeniowa jest liniowa , jedyną rzeczą która zwraca uwagę jest fakt iż czas wykonania jednej operacji jest dłuższy od czasu wykonania 10 operacji. Dla wiekszej ilości danych wyniki są poprawne
-Wydaje się , że zbyt mało danych jest obecnych w środkowej częsci wykresu co powinno być zostać zmienione w celu poprawy jakości odbioru wykresu ( dla charakterystyki liniowej jest to akurat bez znaczenia ale .np dla logarytmicznej było by widoczne ).
+	 Uzyskane charakterystyki wskazują na liniową złożoność oblizeniową co jest zgodne z oczekiwaniami.\n
+Stos i kolejka zostały zrealizowane za pomocą listy , natomiast sama lista dodawała następny element zawsze na swój koniec ( musiała za każdym razem "przechodzić" przez wszystkie swoje elementy) nie dziwi więc zatem że czas wykonywania algorytmu w tym przypadku był bardzo długi. \n
+Uważam iż powinno się dodatkowo opróżniać pamięć po każdorazowym wykonaniu się algorytmu dla każdej ilości danych, co należy zmienić jednak nie jest to łatwe zadanie. 
+
 */

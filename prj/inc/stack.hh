@@ -6,6 +6,7 @@
 #include <fstream>
 #include <cstdlib>
 #include "benchmark.hh"
+#include "list.hh"
 /*!
  * \file
  * \brief Definicja klasy stack
@@ -17,20 +18,6 @@
 class stack: public benchmark
 {
   
-  struct node
-  {
-    /*!
-     * \brief Pole do którego dopisywane są dane
-     */
-    int data;
-    node *next;
-    
-    node()
-    {
-      data=0;
-      next=NULL;
-    }
-  };
   
 private:
   /*!
@@ -62,6 +49,7 @@ public:
   ~stack();
   /*!
    *\brief Metoda test() realizuje operacje zapelniania stosu ustalonymi danymi, czas będzie zliczany 
+ *\param[in] length - ilosc danych do wstawienie
    */
   void test(unsigned long int length);
 };

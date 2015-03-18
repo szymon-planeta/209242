@@ -61,6 +61,10 @@ unsigned stack::size()
     }
   return counter;
 }
+/*!
+ *\brief Metoda test() realizuje wczytywanie zadanej ilości danych na stos 
+*/
+
 void stack::test(unsigned long int length)
 {
   stack a;
