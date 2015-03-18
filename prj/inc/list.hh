@@ -1,5 +1,5 @@
-#ifndef TABX2HH
-#define TABX2_HH
+#ifndef LISTHH
+#define LIST_HH
 #include <iostream>
 #include <time.h>
 #include <string>

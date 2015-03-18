@@ -1,4 +1,4 @@
-#include"tabx2.hh"
+#include"list.hh"
 #include"benchmark.hh"
 #include"generator.hh"
 
