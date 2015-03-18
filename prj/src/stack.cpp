@@ -63,9 +63,23 @@ unsigned stack::size()
 }
 void stack::test(unsigned long int length)
 {
-  for (unsigned long int i=1;i<length;i++)
-    {
-      //stack();
-      //a.push(3);
+  stack a;
+  int e;
+  std::fstream file("random_data.dat",std::ios::in);
+ if ( file.fail() == true )
+   {
+     std::cerr <<"Failed to read from file ";
     }
+ else
+   {
+     for (unsigned long int i=1;i<length;i++)
+       {
+	 file>>e;
+	 a.push(e);
+	 std::cout<<e<<std::endl;
+       }
+
+     file.close();
+   }
 }
+ 

@@ -7,7 +7,12 @@
 int main(){
   
   // data_generator(pow(10,10));
+
   stack a;
-  //a.push(2);
+  a.analyze(10,9);
+  // list b;
+  // b.analyze(10,9);
+  // queue c;
+  //  c.analyze(10,9);
   return 0;
 }
