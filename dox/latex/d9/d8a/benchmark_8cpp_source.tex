@@ -1,0 +1,38 @@
+\hypertarget{benchmark_8cpp_source}{}\section{benchmark.\+cpp}
+\label{benchmark_8cpp_source}\index{benchmark.\+cpp@{benchmark.\+cpp}}
+
+\begin{DoxyCode}
+00001 \textcolor{preprocessor}{#include "\hyperlink{benchmark_8hh}{benchmark.hh}"} 
+\hypertarget{benchmark_8cpp_source_l00007}{}\hyperlink{classbenchmark_a23e508cd746c10ba8a650965673aa839}{00007} \textcolor{keywordtype}{void} \hyperlink{classbenchmark_a23e508cd746c10ba8a650965673aa839}{benchmark::analyze} (\textcolor{keywordtype}{int} repeat,\textcolor{keywordtype}{int} data\_amount)
+00008 \{
+00009   \textcolor{keywordtype}{float} *tab = \textcolor{keyword}{new} \textcolor{keywordtype}{float} [repeat];
+00010   std::fstream file(\textcolor{stringliteral}{"data.csv"},std::ios::app);
+00011   \textcolor{keywordflow}{if} ( file.fail() == true )
+00012     \{
+00013       std::cerr <<\textcolor{stringliteral}{"Failed to write to file "};
+00014     \}
+00015   \textcolor{keywordflow}{else}
+00016     \{
+00017       \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} j=0;j<data\_amount;j++)
+00018     \{
+00019       \textcolor{keywordtype}{float} tmp =0;
+00020       \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i=0 ;i<repeat;i++)
+00021         \{
+00022           clock\_t begin\_time = clock();
+00023           \{
+00024         \hyperlink{classbenchmark_a698d333f815e6e12c0817b1dfee56e99}{test}(pow(10,j));
+00025           \}
+00026           tab[i]=float( clock()- begin\_time) / CLOCKS\_PER\_SEC;
+00027           tmp+=tab[i];
+00028         \}
+00029       
+00030       tmp=tmp/repeat;
+00031       file<<std::endl<<tmp<<\textcolor{stringliteral}{","}<<pow(10,j);
+00032         
+00033     \}
+00034     \}
+00035   \textcolor{keyword}{delete} [] tab;
+00036 \}
+00037 
+00038 
+\end{DoxyCode}

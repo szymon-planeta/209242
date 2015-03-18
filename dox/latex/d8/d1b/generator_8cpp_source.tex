@@ -1,0 +1,28 @@
+\hypertarget{generator_8cpp_source}{}\section{generator.\+cpp}
+\label{generator_8cpp_source}\index{generator.\+cpp@{generator.\+cpp}}
+
+\begin{DoxyCode}
+00001 \textcolor{preprocessor}{ #include"\hyperlink{generator_8hh}{generator.hh}"}
+00002 
+\hypertarget{generator_8cpp_source_l00009}{}\hyperlink{generator_8cpp_a6c501967035e575874570ef71d23f3af}{00009} \textcolor{keywordtype}{bool} \hyperlink{generator_8cpp_a6c501967035e575874570ef71d23f3af}{data\_generator} (\textcolor{keywordtype}{int} data\_amount)
+00010 \{
+00011   srand( time (NULL) ) ; \textcolor{comment}{//punkt startowy jako czas na komputerze w celu generowania coraz to nowych liczb}
+00012  
+00013   std::fstream file(\textcolor{stringliteral}{"random\_data.dat"},std::ios::out | std::ios::trunc);
+00014   \textcolor{keywordflow}{if} ( file.fail() == true )
+00015     \{
+00016       std::cerr <<\textcolor{stringliteral}{"Failed to write to file "};
+00017       \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+00018     \}
+00019   \textcolor{keywordflow}{else}
+00020     \{
+00021       \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i=0;i<data\_amount;i++)
+00022     \{
+00023       \textcolor{keywordtype}{double} random\_number=rand() %1000 + 0; \textcolor{comment}{// liczby od 0 do 1000}
+00024       file << random\_number << std::endl ;
+00025     \}
+00026       file.close();
+00027       \textcolor{keywordflow}{return} \textcolor{keyword}{true}; 
+00028     \} 
+00029 \}
+\end{DoxyCode}

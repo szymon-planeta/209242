@@ -1,7 +1,7 @@
 #include"tabx2.hh"
 /*!
 * \file
-* \brief Deklaracja klasy main
+* \brief Deklaracja klasy tabx2
 * 
 */
 void tabx2::test(int length){

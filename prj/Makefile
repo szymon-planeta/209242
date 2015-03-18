@@ -17,6 +17,8 @@ obj/generator.o: src/generator.cpp inc/generator.hh
 	g++ ${CPPFLAGS} -o obj/generator.o src/generator.cpp
 doc:
 	cd ../dox; make
+tex:
+	cd ../dox/latex; make
 clean:
 	rm -f obj/*.o program1
 help:

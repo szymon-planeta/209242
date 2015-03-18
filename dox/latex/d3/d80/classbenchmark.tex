@@ -1,0 +1,120 @@
+\hypertarget{classbenchmark}{}\section{benchmark Class Reference}
+\label{classbenchmark}\index{benchmark@{benchmark}}
+
+
+{\ttfamily \#include $<$benchmark.\+hh$>$}
+
+
+
+Inheritance diagram for benchmark\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=151pt]{d3/d5c/classbenchmark__inherit__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classbenchmark_a23e508cd746c10ba8a650965673aa839}{analyze} (int repeat, int data\+\_\+amount)
+\begin{DoxyCompactList}\small\item\em Metoda pozwala przeprowadzić analize czasu trwania funkcji test w następujący sposób \+: wykonuje funckję test repeat razy , po czym uśrednia jej wynik. Cały proces jest wykonywany dla data\+\_\+amount razy , gdzie data amount jest potęgą liczby 10. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \hyperlink{classbenchmark_a698d333f815e6e12c0817b1dfee56e99}{test} (int length)=0
+\begin{DoxyCompactList}\small\item\em Klasa benchmark umożliwia przprowadzenie pomiaru czasu trwania programu dla określonych danych. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line \hyperlink{benchmark_8hh_source_l00011}{11} of file \hyperlink{benchmark_8hh_source}{benchmark.\+hh}.
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classbenchmark_a23e508cd746c10ba8a650965673aa839}{}\index{benchmark@{benchmark}!analyze@{analyze}}
+\index{analyze@{analyze}!benchmark@{benchmark}}
+\subsubsection[{analyze}]{\setlength{\rightskip}{0pt plus 5cm}void benchmark\+::analyze (
+\begin{DoxyParamCaption}
+\item[{int}]{repeat, }
+\item[{int}]{data\+\_\+amount}
+\end{DoxyParamCaption}
+)}\label{classbenchmark_a23e508cd746c10ba8a650965673aa839}
+
+
+Metoda pozwala przeprowadzić analize czasu trwania funkcji test w następujący sposób \+: wykonuje funckję test repeat razy , po czym uśrednia jej wynik. Cały proces jest wykonywany dla data\+\_\+amount razy , gdzie data amount jest potęgą liczby 10. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em repeat} & -\/ ilość powtórzeń testu który chcemy wykonać \\
+\hline
+\mbox{\tt in}  & {\em data\+\_\+amount} & -\/ ilosc wynikowych danych podawana jako potega liczby 10 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+plik .csv z czasami poszczegolnych pomiarow oraz ilosc testowanych danych 
+\end{DoxyReturn}
+
+
+Definition at line \hyperlink{benchmark_8cpp_source_l00007}{7} of file \hyperlink{benchmark_8cpp_source}{benchmark.\+cpp}.
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=324pt]{d3/d80/classbenchmark_a23e508cd746c10ba8a650965673aa839_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=270pt]{d3/d80/classbenchmark_a23e508cd746c10ba8a650965673aa839_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classbenchmark_a698d333f815e6e12c0817b1dfee56e99}{}\index{benchmark@{benchmark}!test@{test}}
+\index{test@{test}!benchmark@{benchmark}}
+\subsubsection[{test}]{\setlength{\rightskip}{0pt plus 5cm}virtual void benchmark\+::test (
+\begin{DoxyParamCaption}
+\item[{int}]{length}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [pure virtual]}}\label{classbenchmark_a698d333f815e6e12c0817b1dfee56e99}
+
+
+Klasa benchmark umożliwia przprowadzenie pomiaru czasu trwania programu dla określonych danych. 
+
+Metoda wirtualna, reprezentuje czynność której czas chcemy zmierzyc 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em length} & -\/ ilosc danych dla jakich przeprowadzamy test \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \hyperlink{classtabx2_a41eea5dffaea0a866db5c574129c0ee4}{tabx2}.
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d3/d80/classbenchmark_a698d333f815e6e12c0817b1dfee56e99_icgraph}
+\end{center}
+\end{figure}
+
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{benchmark_8hh}{benchmark.\+hh}\item 
+\hyperlink{benchmark_8cpp}{benchmark.\+cpp}\end{DoxyCompactItemize}
