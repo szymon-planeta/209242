@@ -10,23 +10,24 @@
  */
 class benchmark
 {
- /*!
+private:
+  /*!
    *\brief Metoda test funkcja wirtualna , której czas działania ma być aproksymowany przez metoda analyze() 
    */
   virtual void test(unsigned long int length)=0;
-
+  
 public:
-
- /*!
+  /*!
    *\brief Metoda analyze zlicza czas wykonywania funkcji test()
-\n Uwaga! do poprawnego działania wymagane jest posiadanie programu gnuplot
-
+   \n Uwaga! do poprawnego działania wymagane jest posiadanie programu gnuplot
+   
    *\param[in] repeat - ilość powtórzeń testu  
    *\param[in] data_amount - ilosc wynikowych danych podawana jako potega liczby 10
    *\return plik.dat  z czasami poszczegolnych pomiarow oraz ilosc testowanych danych oraz plik plot.png bedacy graficznym przedstawieniem danych na wykresie
    */   
-
+  
   void analyze (int repeat,int data_amount);
+  
 };
 
 #endif

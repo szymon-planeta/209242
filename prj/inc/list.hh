@@ -8,7 +8,8 @@
 #include "benchmark.hh"
 /*!
  * \file
- * \brief Definicja klasy stack
+ * \brief
+ * Definicja klasy lista
  *
  */
 
@@ -16,20 +17,30 @@
   {
     /*!
      * \brief Pole do którego dopisywane są dane
+     *     
      */
     int data;
     /*!
-     * \brief Pole będące wskaźnikiem na następny element
+     * \brief 
+     * Pole będące wskaźnikiem na następny element
+     *
      */
     node *next;
     /*!
-     * \brief Konstruktor węzła
+     * \brief 
+     * Konstruktor węzła
+     *
+     * Konstruktor inicjalizuje nowy węzeł z wartością równą element
+     * oraz wskaźnikiem na NULL
+     *
+     * \param[in] element - element dodawany na koniec listy
      */
-    node()
+    node(int element)
     {
       data=0;
       next=NULL;
     }
+
   };
 
 class list: public benchmark
@@ -37,34 +48,56 @@ class list: public benchmark
 
 private:
   /*!
-   * \brief Pole będące pierwszym wskaźnikiem na elementy stosu
+   * \brief 
+   * Pole będące wskaźnikiem na pierwszy element listy
+   *
    */
   node *head;
   /*!
-   *\brief Metoda push() dodaje daną na stos 
-   *\param[in] insert - dodawany element    
+   * \brief
+   * Pole będące wskaźnikiem na ostatni element listy
+   *
    */
-  void push(int insert);
-    /*!
-   *\brief Metoda pop() definiuje usuwanie elementu ze stosu   
-   */
-  void pop();
+  node *tail;
   /*!
-   *\brief Metoda size() zwraca ilość elementów stosu
+   *\brief 
+   * Metoda push() dodaje element na listę
+   *
+   *\param[in] insert - wartość dodawanego elementu
+   *\param[in] where  - na które miejsce ów element ma zostać dodany
+   *
+   */
+  void push(int insert,unsigned int where);
+  /*!
+   *\brief
+   * Metoda pop() definiuje usuwanie elementu z listy
+   *\param[in] insert - numer usuwanego elementu
+   */
+  void pop(unsigned int whence);
+  /*!
+   *\brief
+   * Metoda size() zwraca ilość elementów znajdujących się na liście
+   *
    */
   unsigned size();
   
 public:
   /*!
-   *\brief Konstruktor inicjalizujący zmienną wskaźnikową , która domyślnie ma pokazywać na NULL
+   *\brief
+   * Konstruktor inicjalizujący pustą listę, początek i koniec listy
+   * są domyślnie ustawione na NULL
+   *
    */
   list();
   /*!
-   *\brief Destruktor usuwa wszystkie elementy ze stosu za pomocą funkcji pop
+   *\brief 
+   * Destruktor usuwa wszystkie elementy ze stosu za pomocą funkcji pop
+   *   
    */
   ~list();
   /*!
-   *\brief Metoda test() realizuje operacje zapelniania stosu ustalonymi danymi, czas będzie zliczany 
+   *\brief
+   * Metoda test() realizuje operacje za
    *\param[in] length - ilość dodawanych lementów  
    */
   void test(unsigned long int length);

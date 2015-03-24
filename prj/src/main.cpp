@@ -1,6 +1,6 @@
 #include"stack.hh"
-#include"benchmark.hh"
-#include"generator.hh"
+#include"tools.hh"
+#include"tools.hh"
 #include"list.hh"
 #include"queue.hh"
   /*!
@@ -8,22 +8,15 @@
 Aby Przeprowadzić analizę złożoności obliczeniowej dla stosu należy odkomentować 1 blok ( dotyczący klasy stack ) \n
 Aby Przeprowadzić analizę złożoności obliczeniowej dla listy należy odkomentować 2 blok ( dotyczący klasy list ) \n
 Aby Przeprowadzić analizę złożoności obliczeniowej dla kolejki należy odkomentować 3 blok ( dotyczący klasy queue ) \n
-
-   */
+  */
+ 
 int main(){
-  
-  // data_generator(pow(10,10));
-  /*
-    stack a;
-    a.analyze(10,6);
-  */
-  /*  
-    list b;
-    b.analyze(10,6);
-  */  
-  /*
-    queue c;
-    c.analyze(10,6);
-  */
+  ///Generuj Dane losowe///
+  //data_generator(1000000);
+  /////////////////////////
+  list a;
+  a.analyze(10,3);
+
   return 0;
+
 }

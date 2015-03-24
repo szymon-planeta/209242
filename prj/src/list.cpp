@@ -5,61 +5,127 @@
 * 
 */
 
+
 list::list()
 {
-  head = NULL;
+  head=NULL;
+  tail=NULL;
 }
+
 list::~list()
 {
-  while(head) pop();
+  while(head) pop(0);
 }
 /*!
- *\brief Metoda push() wczytuje liczbę naturalną na liste 
-\n
-Przykład wywołania funkcji : \n
-push(10) - Na początek listy zostanie wprowadzona liczba 10
- 
+ *\brief 
+ * Metoda push() wczytuje liczbę naturalną na liste 
+ *
+ * Elementy listy są numerowane od 0!! \n
+ * Przykład użycia funkcji: \n
+ * push(3,3) -> wstawia element o wartości 3 na 3 miejsce listy , lub zwraca 
+ * błąd 3 jeżeli lista jest zbyt krótka
 */
 
-void list::push(int insert)
+void list::push(int insert,unsigned int where)
 {
-  node *tmp =new node;
-  tmp->data=insert;
-  if(head==NULL)
+  if(where<0 || where>size())
     {
+      std::cerr<<"Nie można dodać elementów znajduje się obecnie na liście - błędny index !"<<std::endl; exit(3);
+    }
+  else if( head==NULL )
+    {
+      node *tmp = new node ( insert );
+      head=tmp;
+      tail=tmp;
+    }
+  else if ( where==0 )
+    {
+      node *tmp =new node ( insert );
+      tmp->next=head;
       head=tmp;
     }
+  else if ( where==size() )
+    {
+      node *tmp =new node ( insert );
+      tail->next=tmp;
+      tail=tmp;
+    }
   else
     {
-      node *tmp1=head;
-      while(tmp1->next) tmp1=tmp1->next;
-      tmp1->next=tmp;
-      tmp->next=NULL;
+      node *tmp = new node ( insert );
+      node *temp; 
+      node *index=head;
+      for ( unsigned int i=0;i<where-1;i++ )
+	{
+	 index=index->next;
+	 temp=index->next;
+	 tmp->next=temp;
+	 index->next=tmp;
+	}
     }
 }
 /*!
- *\brief Metoda pop() usuwa z listy ostatni element lub zwraca komunikat o błędzie w przypadku próby usnięcia elementu z pustego stosu
+ *\brief 
+ * Metoda pop() usuwa z listy wybrany element , lub zwraca błąd
+ * jeżeli lista jest już pusta
 */
 
-void list::pop()
+void list::pop(unsigned int whence)
 {
-  if (head==NULL) std::cerr<<"Lista jest pusta. Nie można usunąć żadnego elementu!";
-  else
+  if( whence<0 || whence>size() )
     {
-      node *tmp=head;
-      head=tmp->next;
-      delete tmp;
+      std::cerr<<"Nie można usunać z listy,zbyt mało danych na liście, przekroczono zakres !"<<std::endl;
+      exit(4);
     }
-  
+  else if (size()==0)
+    {
+      std::cerr<<"Lista jest pusta - nie można usunąć elementu!"<<std::endl;
+      exit(5);
+    }
+  else if (whence==0)
+    {
+      node *temp =head->next; 
+      delete head;
+      head=temp;
+     
+    }
+  else if ( whence == size()-1 )
+    {
+      node *index=head;
+      for(unsigned i=0;i<whence-1;i++)
+	{
+	  index=index->next;
+	  delete tail;
+	  tail=index;
+	}
+    }
+  else
+	{
+	  node *temp;
+	  node *index=head;
+	  for(unsigned int i=0;i<whence-1;i++)
+	    {
+	      index=index->next;
+	      temp=index->next;
+	      index->next=temp->next;
+	      delete temp;
+	    }
+	}
 }
+
+
+
+
 /*!
- *\brief Metoda size() zwraca ilość elementów znajdujących się na liście 
-*/
+ *\brief
+ *
+ * Metoda size() zwraca ilość elementów znajdujących się na liście 
+ */
 
 unsigned list::size()
 {
-  unsigned counter=0;
-  node *tmp=head;
+  unsigned int counter =0 ;
+  node *tmp = head;
   while(tmp)
     {
       tmp=tmp->next;
@@ -69,26 +135,28 @@ unsigned list::size()
 }
 
 /*!
- *\brief Metoda test() realizuje wczytywanie zadanej ilości danych do listy 
-*/
+ *\brief 
+ * Metoda test() realizuje wczytywanie zadanej ilości danych do listy 
+ * 
+ */
+
 void list::test(unsigned long int length)
 {
-  list a;
+ 
   int tmp;
   std::fstream file("random_data.dat",std::ios::in);
  if ( file.fail() == true )
    {
      std::cerr <<"Failed to read from file ";
-    }
+   }
  else
    {
-     for (unsigned long int i=1;i<length;i++)
+     for (unsigned long int i=0;i<length;i++)
        {
 	 file>>tmp;
-	 a.push(tmp);
-	 std::cout<<tmp<<std::endl;
+	 push(tmp,0);
+	 std::cout<<i<<std::endl;
        }
-
      file.close();
    }
 }

@@ -1,5 +1,5 @@
-#ifndef GENERATOR_HH
-#define GENERATOR_HH 
+#ifndef TOOLS_HH
+#define TOOLS_HH 
 #include<fstream>
 #include<iostream>
 #include <stdlib.h>
@@ -17,6 +17,8 @@
 * Funkcja generuje naturalne  liczby losowe z przedziału 0-100, ktore nastepnie sa zapisywane do pliku random_data.dat
 * \param[in] data_amount - ilosc liczb wynikowych ktore chcemy uzyskac
 */
-bool data_generator (unsigned long int data_amount);
-  
+void data_generator (unsigned long int data_amount);
+
+
+
 #endif
