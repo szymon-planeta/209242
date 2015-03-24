@@ -12,45 +12,52 @@
  * \brief Definicja klasy stack
  *
  */
-
-
-
 class stack: public benchmark
 {
   
   
-public:
+private:
   /*!
    * \brief 
    * Pole będące wskaźnikiem na pierwszy element stosu
    */
   node *head;
   /*!
-   *\brief Metoda push() dodaje daną na stos 
-   *\param[in] insert - dodawany element    
+   *\brief 
+   * Metoda push() dodaje daną na stos 
+   *\param[in] insert - wartość dodawanego elementu    
    */
   void push(int insert);
   /*!
-   *\brief Metoda pop() definiuje usuwanie elementu ze stosu   
+   *\brief 
+   * Metoda pop() definiuje usuwanie elementu ze stosu   
    */
   void pop();
   /*!
-   *\brief Metoda size() zwraca ilość elementów stosu
+   *\brief
+   * Metoda size() zwraca ilość elementów stosu
    */
   unsigned size();
   
 public:
   /*!
-   *\brief Konstruktor inicjalizujący zmienną wskaźnikową , która domyślnie ma pokazywać na NULL
+   *\brief 
+   *Konstruktor inicjalizujący pusty stos, początek stosu jest 
+   * domyślnie ustawiony na NULL 
+   *
    */
   stack();
   /*!
-   *\brief Destruktor usuwa wszystkie elementy ze stosu za pomocą funkcji pop
+   *\brief 
+   * Destruktor usuwa wszystkie elementy ze stosu za pomocą
+   * funkcji pop
    */
   ~stack();
   /*!
-   *\brief Metoda test() realizuje operacje zapelniania stosu ustalonymi danymi, czas będzie zliczany 
- *\param[in] length - ilosc danych do wstawienie
+   *\brief 
+   * Metoda test() realizuje operacje zapelniania stosu 
+   * ustalonymi danymi, czas będzie zliczany 
+   *\param[in] length - ilosc dodawanych elementów
    */
   void test(unsigned long int length);
 };

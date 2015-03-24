@@ -91,14 +91,14 @@ public:
   list();
   /*!
    *\brief 
-   * Destruktor usuwa wszystkie elementy ze stosu za pomocą 
-   *funkcji pop   
+   * Destruktor usuwa wszystkie elementy ze stosu za pomocą funkcji pop
+   *   
    */
   ~list();
   /*!
    *\brief
    * Metoda test() realizuje operacje za
-   *\param[in] length - ilość dodawanych lementów  
+   *\param[in] length - ilość dodawanych elementów  
    */
   void test(unsigned long int length);
 };

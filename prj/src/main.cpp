@@ -14,7 +14,7 @@ int main(){
   ///Generuj Dane losowe///
   //data_generator(1000000);
   /////////////////////////
-  list a;
+  queue a;
   a.analyze(10,3);
 
   return 0;
