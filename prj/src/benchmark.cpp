@@ -8,14 +8,14 @@
  *\brief Metoda analyze zlicza czas fukcji test()
 \n
 Przykład wywołania funkcji : \n
-analyze(100,7) -> Przeprowadza analize czesu trwania funkcji test() dla 1 miliona danych , każdy czas trwania funkcji jest ustalany na podstawie średniej arytmetycznej ze 100 prób
+analyze("Plik_wynikowy",100,7) -> Przeprowadza analize czesu trwania funkcji test() dla 1 miliona danych(ilość danych należy podać jako potęgę 10 ) , każdy czas trwania funkcji jest ustalany na podstawie średniej arytmetycznej ze 100 prób , wyniki zapisuje do pliku o nazwie Plik_wynikowy
  
 */
 
-void benchmark::analyze (int repeat,int data_amount)
+void benchmark::analyze (const char *name_output,int repeat,int data_amount)
 {
   float *tab = new float [repeat];
-  std::fstream file("data.dat",std::ios::out);
+  std::fstream file(name_output,std::ios::out);
   if ( file.fail() )
     {
       std::cerr <<"Failed to write to file ";

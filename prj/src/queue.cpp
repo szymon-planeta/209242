@@ -21,7 +21,7 @@ queue::~queue()
  * Metoda push() wczytuje liczbę naturalną do kolejki 
  * \n
  * Przykład wywołania funkcji : \n
- * hpush(10) - Na koniec kolejki zostanie wprowadzona liczba 10
+ * push(10) - Na koniec kolejki zostanie wprowadzona liczba 10
 */
 
 void queue::push(int insert)
@@ -41,7 +41,8 @@ void queue::push(int insert)
 }
 
 /*!
- *\brief Metoda pop() usuwa z kolejki pierwszy element lub zwraca komunikat o błędzie w przypadku próby usnięcia elementu z pustej kolejki
+ *\brief
+ * Metoda pop() usuwa z kolejki pierwszy element lub zwraca komunikat o błędzie w przypadku próby usnięcia elementu z pustej kolejki
  */
 void queue::pop()
 {
@@ -60,7 +61,8 @@ void queue::pop()
 }
 
 /*!
- *\brief Metoda size() zwraca ilość elementów znajdujących się w kolejce 
+ *\brief 
+ * Metoda size() zwraca ilość elementów znajdujących się w kolejce 
 */
 
 unsigned queue::size()
@@ -75,7 +77,8 @@ unsigned queue::size()
   return counter;
 }
 /*!
- *\brief Metoda test() realizuje wczytywanie zadanej ilości danych do kolejki 
+ *\brief
+ *  Metoda test() realizuje wczytywanie zadanej ilości danych do kolejki 
 */
 void queue::test(unsigned long int length)
 {
