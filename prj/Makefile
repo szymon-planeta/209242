@@ -5,8 +5,8 @@ __start__: structures
 obj:
 	mkdir obj
 
-structures: obj/main.o obj/list.o obj/stack.o obj/queue.o obj/benchmark.o obj/tools.o
-	g++ -Wall -pedantic -o structures obj/main.o obj/list.o obj/queue.o  obj/stack.o obj/benchmark.o obj/tools.o
+structures: obj/main.o obj/list.o  obj/benchmark.o obj/generator.o obj/stack.o obj/queue.o
+	g++ -Wall -pedantic -o structures obj/main.o obj/list.o obj/benchmark.o obj/stack.o obj/queue.o obj/generator.o
 obj/main.o: src/main.cpp inc/list.hh inc/stack.hh inc/queue.hh
 	g++ ${CPPFLAGS} -o obj/main.o src/main.cpp
 obj/list.o: src/list.cpp inc/list.hh 
@@ -17,8 +17,8 @@ obj/queue.o: src/queue.cpp inc/queue.hh
 	g++ ${CPPFLAGS} -o obj/queue.o src/queue.cpp
 obj/benchmark.o: src/benchmark.cpp inc/benchmark.hh
 	g++ ${CPPFLAGS} -o obj/benchmark.o src/benchmark.cpp
-obj/tools.o: src/tools.cpp inc/tools.hh
-	g++ ${CPPFLAGS} -o obj/tools.o src/tools.cpp
+obj/generator.o: src/generator.cpp inc/generator.hh
+	g++ ${CPPFLAGS} -o obj/generator.o src/generator.cpp
 doc:
 	cd ../dox; make
 tex:

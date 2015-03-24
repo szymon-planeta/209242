@@ -136,18 +136,18 @@ unsigned list::size()
 
 /*!
  *\brief 
- * Metoda test() realizuje wczytywanie zadanej ilości danych do listy 
- * 
+ * Metoda test() realizuje wczytywanie zadanej ilości danych
+* 
  */
 
 void list::test(unsigned long int length)
 {
- 
-  int tmp;
+    int tmp;
   std::fstream file("random_data.dat",std::ios::in);
  if ( file.fail() == true )
    {
      std::cerr <<"Failed to read from file ";
+     exit(3);
    }
  else
    {
@@ -160,5 +160,6 @@ void list::test(unsigned long int length)
      file.close();
    }
 }
+
 
 

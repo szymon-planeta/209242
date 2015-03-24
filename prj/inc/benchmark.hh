@@ -19,15 +19,14 @@ private:
 public:
   /*!
    *\brief Metoda analyze zlicza czas wykonywania funkcji test()
-   \n Uwaga! do poprawnego działania wymagane jest posiadanie programu gnuplot
-   
+   *\param[in] name_output - nazwa pliku wynikowego
    *\param[in] repeat - ilość powtórzeń testu  
    *\param[in] data_amount - ilosc wynikowych danych podawana jako potega liczby 10
-   *\return plik.dat  z czasami poszczegolnych pomiarow oraz ilosc testowanych danych oraz plik plot.png bedacy graficznym przedstawieniem danych na wykresie
+   *\return plik.dat  z czasami poszczegolnych pomiarow oraz ilosc testowanych danych.
    */   
   
-  void analyze (int repeat,int data_amount);
-  
+  void analyze (const char *name_output,int repeat,int data_amount);
+
 };
 
 #endif

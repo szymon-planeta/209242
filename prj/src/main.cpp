@@ -1,6 +1,5 @@
 #include"stack.hh"
-#include"tools.hh"
-#include"tools.hh"
+#include"generator.hh"
 #include"list.hh"
 #include"queue.hh"
   /*!
@@ -15,7 +14,9 @@ int main(){
   //data_generator(1000000);
   /////////////////////////
   list a;
-  a.analyze(10,3);
+  a.analyze("list",10,3);
+
+
 
   return 0;
 

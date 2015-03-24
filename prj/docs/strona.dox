@@ -22,6 +22,7 @@ Na podstawie otrzymanych danych mamy :\n
 \section Podsumowanie
 	 Uzyskane charakterystyki wskazują na liniową złożoność oblizeniową co jest zgodne z oczekiwaniami.\n
 Stos i kolejka zostały zrealizowane za pomocą listy , natomiast sama lista dodawała następny element zawsze na swój koniec ( musiała za każdym razem "przechodzić" przez wszystkie swoje elementy) nie dziwi więc zatem że czas wykonywania algorytmu w tym przypadku był bardzo długi. \n
-Uważam iż powinno się dodatkowo opróżniać pamięć po każdorazowym wykonaniu się algorytmu dla każdej ilości danych, co należy zmienić jednak nie jest to łatwe zadanie. 
+Mimo wszystko uważam  że algorytm dodający elementy do struktury lista jes bardzo wysoce nieefektywny, i w zasadzie stos czy kolejka są zrealizowane za pomocą listy czyli de facto implementacja listy jako oddzielnej klasy ( dodatkowo takiej w którym funkcja push() przechodzi przez wszystkie elementy) jest bezsensowna i o ile dobrze rozumiem postawione zadanie zbędna.\n
+Uważam również iż powinno się dodatkowo opróżniać pamięć po każdorazowym wykonaniu się algorytmu dla każdej ilości danych, co należałoby zmienić jednak wymagało by to przerywania zliczania czasu. 
 
 */
