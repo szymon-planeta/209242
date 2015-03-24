@@ -140,7 +140,7 @@ unsigned list::size()
  * 
  */
 
-void list::test(int source,unsigned long int length)
+void list::test(unsigned long int length)
 {
   int tmp;
   for (unsigned long int i=0;i<length;i++)
