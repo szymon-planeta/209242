@@ -19,9 +19,10 @@ class stack: public benchmark
 {
   
   
-private:
+public:
   /*!
-   * \brief Pole będące pierwszym wskaźnikiem na elementy stosu
+   * \brief 
+   * Pole będące wskaźnikiem na pierwszy element stosu
    */
   node *head;
   /*!

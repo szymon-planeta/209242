@@ -25,11 +25,7 @@ push(10) - Na koniec kolejki zostanie wprowadzona liczba 10
 
 void queue::push(int insert)
 {
-  node *tmp =new node;
-  tmp->data=insert;
-  if(tail) tail->next=tmp;
-  else head=tmp;
-  tail=tmp;
+
 
 }
 
@@ -38,14 +34,7 @@ void queue::push(int insert)
  */
 void queue::pop()
 {
-  if (head==NULL) std::cerr<<"Lista jest pusta. Nie można usunąć żadnego elementu!";
-  else
-    {
-      node *tmp=head;
-      head=tmp->next;
-      if(!head) tail=NULL;
-      delete tmp;
-    }
+
   
 }
 
@@ -55,36 +44,12 @@ void queue::pop()
 
 unsigned queue::size()
 {
-  unsigned counter=0;
-  node *tmp=head;
-  while(tmp)
-    {
-      tmp=tmp->next;
-      counter++;
-    }
-  return counter;
+  return 0;
 }
 /*!
  *\brief Metoda test() realizuje wczytywanie zadanej ilości danych do kolejki 
 */
 void queue::test(unsigned long int length)
 {
-  queue a;
-  int tmp;
-  std::fstream file("random_data.dat",std::ios::in);
- if ( file.fail() == true )
-   {
-     std::cerr <<"Failed to read from file ";
-    }
- else
-   {
-     for (unsigned long int i=1;i<length;i++)
-       {
-	 file>>tmp;
-	 a.push(tmp);
-	 std::cout<<tmp<<std::endl;
-       }
-
-     file.close();
-   }
+ 
 }

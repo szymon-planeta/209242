@@ -16,13 +16,14 @@ void benchmark::analyze (int repeat,int data_amount)
 {
   float *tab = new float [repeat];
   std::fstream file("data.dat",std::ios::out);
-  if ( file.fail() == true )
+  if ( file.fail() )
     {
       std::cerr <<"Failed to write to file ";
+      exit(3);
     }
   else
     {
-      for(int j=0;j<data_amount;j++)
+      for(int j=0;j<data_amount+1;j++)
 	{
 	  float tmp =0;
 	  for (int i=0 ;i<repeat;i++)
@@ -34,14 +35,11 @@ void benchmark::analyze (int repeat,int data_amount)
 	      tab[i]=float( clock()- begin_time) / CLOCKS_PER_SEC;
 	      tmp+=tab[i];
 	    }
-	  
 	  tmp=tmp/repeat;
 	  file<<std::endl<<tmp<<" "<<pow(10,j);
-        
 	}
     }
-  delete [] tab;
-  system("gnuplot plot.plt");
+   delete [] tab;
 }
 
 
