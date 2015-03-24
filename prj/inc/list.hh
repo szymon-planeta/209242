@@ -100,7 +100,7 @@ public:
    * Metoda test() realizuje operacje za
    *\param[in] length - ilość dodawanych lementów  
    */
-  void test(unsigned long int length);
+  void test(int source,unsigned long int length);
 };
 
 #endif

@@ -14,7 +14,7 @@ private:
   /*!
    *\brief Metoda test funkcja wirtualna , której czas działania ma być aproksymowany przez metoda analyze() 
    */
-  virtual void test(unsigned long int length)=0;
+  virtual void test(int source,unsigned long int length)=0;
   
 public:
   /*!
@@ -26,7 +26,7 @@ public:
    */   
   
   void analyze (const char *name_output,int repeat,int data_amount);
-  
+
 };
 
 #endif
