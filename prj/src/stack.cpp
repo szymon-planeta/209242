@@ -75,6 +75,7 @@ void stack::test(unsigned long int length)
  if ( file.fail() == true )
    {
      std::cerr <<"Failed to read from file ";
+     exit(3);
    }
  else
    {

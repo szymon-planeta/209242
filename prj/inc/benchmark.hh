@@ -14,12 +14,12 @@ private:
   /*!
    *\brief Metoda test funkcja wirtualna , której czas działania ma być aproksymowany przez metoda analyze() 
    */
-  virtual void test(int source,unsigned long int length)=0;
+  virtual void test(unsigned long int length)=0;
   
 public:
   /*!
    *\brief Metoda analyze zlicza czas wykonywania funkcji test()
-   *\param[in] output_name - nazwa pliku wynikowego
+   *\param[in] name_output - nazwa pliku wynikowego
    *\param[in] repeat - ilość powtórzeń testu  
    *\param[in] data_amount - ilosc wynikowych danych podawana jako potega liczby 10
    *\return plik.dat  z czasami poszczegolnych pomiarow oraz ilosc testowanych danych.

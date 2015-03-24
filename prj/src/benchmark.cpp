@@ -6,7 +6,7 @@
 
 /*!
  *\brief Metoda analyze zlicza czas fukcji test()
-\n
+ *\n
 Przykład wywołania funkcji : \n
 analyze("Plik_wynikowy",100,7) -> Przeprowadza analize czesu trwania funkcji test() dla 1 miliona danych(ilość danych należy podać jako potęgę 10 ) , każdy czas trwania funkcji jest ustalany na podstawie średniej arytmetycznej ze 100 prób , wyniki zapisuje do pliku o nazwie Plik_wynikowy
 */

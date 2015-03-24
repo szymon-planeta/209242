@@ -71,7 +71,7 @@ private:
   /*!
    *\brief
    * Metoda pop() definiuje usuwanie elementu z listy
-   *\param[in] insert - numer usuwanego elementu
+   *\param[in] whence - numer usuwanego elementu
    */
   void pop(unsigned int whence);
   /*!
@@ -97,10 +97,10 @@ public:
   ~list();
   /*!
    *\brief
-   * Metoda test() realizuje operacje za
+   * Metoda test() realizuje operacje wypelniania listy danymi
    *\param[in] length - ilość dodawanych lementów  
    */
-  void test(int source,unsigned long int length);
+  void test(unsigned long int length);
 };
 
 #endif

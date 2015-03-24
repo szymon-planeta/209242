@@ -136,19 +136,29 @@ unsigned list::size()
 
 /*!
  *\brief 
- * Metoda test() realizuje wczytywanie zadanej ilości danych( np. jak niżej samych dziesiątek ) do listy na arbitralnie wybrane miejsce (np. jak niżej na początek)
- * 
+ * Metoda test() realizuje wczytywanie zadanej ilości danych
+* 
  */
 
 void list::test(unsigned long int length)
 {
-  int tmp;
-  for (unsigned long int i=0;i<length;i++)
-    {
-      
-      push(source,0);
-      //std::cout<<i<<std::endl; //do destów
-    }
+    int tmp;
+  std::fstream file("random_data.dat",std::ios::in);
+ if ( file.fail() == true )
+   {
+     std::cerr <<"Failed to read from file ";
+     exit(3);
+   }
+ else
+   {
+     for (unsigned long int i=0;i<length;i++)
+       {
+	 file>>tmp;
+	 push(tmp,0);
+	 std::cout<<i<<std::endl;
+       }
+     file.close();
+   }
 }
 
 

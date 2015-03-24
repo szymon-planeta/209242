@@ -1,6 +1,5 @@
 #include"stack.hh"
-#include"tools.hh"
-#include"tools.hh"
+#include"generator.hh"
 #include"list.hh"
 #include"queue.hh"
   /*!
