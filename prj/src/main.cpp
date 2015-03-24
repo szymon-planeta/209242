@@ -12,8 +12,8 @@ Aby Przeprowadzić analizę złożoności obliczeniowej dla kolejki należy odko
 
    */
 int main(){
-  list_array test(10000000);
-  test.analyze(10,4);
+  list_array test(1);
+  // test.analyze(10,7);
   //test.push(4);
 
   // data_generator(pow(10,10));

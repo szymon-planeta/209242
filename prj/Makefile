@@ -5,14 +5,12 @@ __start__: structures
 obj:
 	mkdir obj
 
-structures: obj/main.o obj/list.o obj/stack.o obj/queue.o obj/list_array.o obj/benchmark.o obj/generator.o
-	g++ -Wall -pedantic -o structures obj/main.o obj/list.o obj/queue.o obj/list_array.o obj/stack.o obj/benchmark.o obj/generator.o
+structures: obj/main.o obj/list.o obj/stack.o obj/queue.o obj/benchmark.o obj/generator.o
+	g++ -Wall -pedantic -o structures obj/main.o obj/list.o obj/queue.o  obj/stack.o obj/benchmark.o obj/generator.o
 obj/main.o: src/main.cpp inc/list.hh inc/stack.hh inc/queue.hh
 	g++ ${CPPFLAGS} -o obj/main.o src/main.cpp
 obj/list.o: src/list.cpp inc/list.hh 
 	g++ ${CPPFLAGS} -o obj/list.o src/list.cpp
-obj/list_array.o: src/list_array.cpp inc/list_array.hh 
-	g++ ${CPPFLAGS} -o obj/list_array.o src/list_array.cpp
 obj/stack.o: src/stack.cpp inc/stack.hh
 	g++ ${CPPFLAGS} -o obj/stack.o src/stack.cpp
 obj/queue.o: src/queue.cpp inc/queue.hh
