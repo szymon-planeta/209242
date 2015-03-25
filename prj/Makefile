@@ -5,8 +5,8 @@ __start__: structures
 obj:
 	mkdir obj
 
-structures: obj/main.o obj/list.o  obj/benchmark.o obj/generator.o obj/stack.o obj/queue.o
-	g++ -Wall -pedantic -o structures obj/main.o obj/list.o obj/benchmark.o obj/stack.o obj/queue.o obj/generator.o
+structures: obj/main.o obj/list.o  obj/benchmark.o obj/generator.o obj/stack.o obj/queue.o obj/list_array.o
+	g++ -Wall -pedantic -o structures obj/main.o obj/list.o obj/benchmark.o obj/stack.o obj/queue.o obj/generator.o obj/list_array.o
 obj/main.o: src/main.cpp inc/list.hh inc/stack.hh inc/queue.hh
 	g++ ${CPPFLAGS} -o obj/main.o src/main.cpp
 obj/list.o: src/list.cpp inc/list.hh 
@@ -19,6 +19,8 @@ obj/benchmark.o: src/benchmark.cpp inc/benchmark.hh
 	g++ ${CPPFLAGS} -o obj/benchmark.o src/benchmark.cpp
 obj/generator.o: src/generator.cpp inc/generator.hh
 	g++ ${CPPFLAGS} -o obj/generator.o src/generator.cpp
+obj/list_array.o: src/list_array.cpp inc/list_array.hh
+	g++ ${CPPFLAGS} -o obj/list_array.o src/list_array.cpp
 doc:
 	cd ../dox; make
 tex:

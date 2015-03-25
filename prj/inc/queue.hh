@@ -20,7 +20,7 @@ class queue: public benchmark
 
 
   
-public:
+private:
   /*!
    * \brief Pole będące pierwszym wskaźnikiem na elementy kolejki
    */
