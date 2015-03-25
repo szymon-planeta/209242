@@ -20,7 +20,7 @@ void data_generator (unsigned long int data_amount)
     {
       for(unsigned long int i=0;i<data_amount;i++)
 	{
-	  double random_number=rand() %10 + 0; // liczby od 0 do 10
+	  double random_number=rand() %1000 + 0; // liczby od 0 do 1000
 	  file << random_number << std::endl ;
 	}
       file.close(); 
