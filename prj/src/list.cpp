@@ -155,7 +155,7 @@ void list::test(unsigned long int length)
        {
 	 file>>tmp;
 	 push(tmp,0);
-	 std::cout<<i<<std::endl;
+	 //	 std::cout<<i<<std::endl;
        }
      file.close();
    }

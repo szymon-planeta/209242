@@ -95,7 +95,7 @@ void queue::test(unsigned long int length)
        {
 	 file>>tmp;
 	 push(tmp);
-	 std::cout<<i<<std::endl;
+	 // std::cout<<i<<std::endl;
        }
      file.close();
    }
