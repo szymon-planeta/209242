@@ -13,9 +13,18 @@ int main(){
   ///Generuj Dane losowe///
   //data_generator(1000000);
   /////////////////////////
+  /*
   list a;
   a.analyze("list",10,3);
-
+  */
+  /*
+ stack a;
+  a.analyze("stack",10,3);
+  */
+  /*
+    queue a;
+    a.analyze("stack",10,3);
+  */
 
 
   return 0;
