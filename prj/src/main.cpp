@@ -10,11 +10,14 @@ int main(){
   ///Generuj Dane losowe ( ustawione na 10^7 )
   //data_generator(pow(10,7));
   /////////////////////////
-  // list a;
-  // a.analyze("list",10,5);
+  /*
+   list a;
+   a.analyze("list",10,5);
+  */
+  /*
   list_array a;
-  a.analyze("list_array*2",10,5);
- 
+   a.analyze("list_array*2",10,5);
+  */
 
   return 0;
 

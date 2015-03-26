@@ -217,7 +217,9 @@ void list_array::test(unsigned long int length)
       for (unsigned long int i=1;i<length;i++)
 	{
 	  file>>tmp;
-	  push(tmp,0,2,'*'); // tutaj należy zmienić implementacje
+	  // tutaj należy zmienić implementacje
+	  push(tmp,0,2,'*'); // 2-krotne zwiększanie rozmiaru tablicy
+	  //push(tmp,0,1,'+'); // zwiększanie rozmiaru o 1
 	}
       file.close();
    }
