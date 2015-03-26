@@ -15,6 +15,8 @@ private:
    *\brief Metoda test funkcja wirtualna , której czas działania ma być aproksymowany przez metoda analyze() 
    */
   virtual void test(unsigned long int length)=0;
+
+  virtual void quicksort(int left, int right)=0;
   
 public:
   /*!
