@@ -29,30 +29,37 @@ public:
    */
   unsigned long int temp;
   /*!
-   *\brief Metoda push() dodaje daną na stos 
-   *\param[in] insert - dodawany element    
+   *\brief 
+   * Metoda push() dodaje element na listę
+   *
+   *\param[in] insert - wartość dodawanego elementu
+   *\param[in] where  - na które miejsce ów element ma zostać dodany
+   *\param[in] extend - parametr ustalający o ile powiększyć listę
+   *\param[in] x - typ zwiększania tablicy '+'/'-'
    */
-  void push(int insert,unsigned int where,unsigned int extend);
-    /*!
-   *\brief Metoda pop() definiuje usuwanie elementu ze stosu   
-   */
-  void pop();
+  void push(int insert,unsigned int where,unsigned int extend,char x);
   /*!
-   *\brief Metoda size() zwraca ilość elementów stosu
+   *\brief
+   * Metoda pop() definiuje usuwanie elementu z listy
+   *\param[in] whence - numer usuwanego elementu
+   */
+  void pop(unsigned int whence);
+  /*!
+   *\brief Metoda size() zwraca ilość elementów na liście
    */
   unsigned size();
   
 public:
   /*!
-   *\brief Konstruktor inicjalizujący zmienną wskaźnikową , która domyślnie ma pokazywać na NULL
+   *\brief Konstruktor inicjalizuje pustą listę , wskaźnik na listę jest domyślnie ustawiony na NULL
    */
   list_array();
   /*!
-   *\brief Destruktor usuwa wszystkie elementy ze stosu za pomocą funkcji pop
+   *\brief Destruktor usuwa listę
    */
    ~list_array();
   /*!
-   *\brief Metoda test() realizuje operacje zapelniania stosu ustalonymi danymi, czas będzie zliczany 
+   *\brief Metoda test() realizuje operacje wypełniania listy danymi
    *\param[in] length - ilość dodawanych lementów  
    */
   void test(unsigned long int length);
