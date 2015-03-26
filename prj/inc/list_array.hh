@@ -14,8 +14,8 @@
 
 class list_array: public benchmark
 {
-
 public:
+
   /*!
    * \brief Ilość elementów na liscie
    */
@@ -28,6 +28,8 @@ public:
    * \brief Rozmiar tablicy
    */
   unsigned long int temp;
+
+public:
   /*!
    *\brief 
    * Metoda push() dodaje element na listę
@@ -49,7 +51,6 @@ public:
    */
   unsigned size();
   
-public:
   /*!
    *\brief Konstruktor inicjalizuje pustą listę , wskaźnik na listę jest domyślnie ustawiony na NULL
    */
@@ -63,6 +64,16 @@ public:
    *\param[in] length - ilość dodawanych lementów  
    */
   void test(unsigned long int length);
+
+  /*!
+   * \brief Metoda quicksort(int left, int right) przeprowadza operację sortowania szybkiego.
+   *
+   * Aby posortować całą tablicę, należy jako argumenty podać 0 i size()-1.
+   *
+   * \param[in] left - początek zakresu (pierwszy element) sortowania
+   * \param[in] right - koniec zakresu (ostatni element) sortowania
+   */
+  void quicksort(int left, int right);
 };
 
 #endif

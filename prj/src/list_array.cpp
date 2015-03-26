@@ -214,7 +214,7 @@ void list_array::test(unsigned long int length)
     }
   else
     {
-      for (unsigned long int i=1;i<length;i++)
+      for (unsigned long int i=1;i<=length;i++)
 	{
 	  file>>tmp;
 	  // tutaj należy zmienić implementacje
@@ -225,4 +225,27 @@ void list_array::test(unsigned long int length)
    }
 }
 
+void list_array::quicksort(int left, int right){
+  int i=(right+left)/2;
+  int piwot=tmp[i];
+  int schowek;
+  int j=0;
+ 
+  tmp[i]=tmp[right];
+  tmp[right]=piwot;
 
+  for(j=i=left;i<right;i++){
+    if(tmp[i]<piwot){
+      schowek=tmp[i];
+      tmp[i]=tmp[j];
+      tmp[j]=schowek;
+      j++;
+    }
+  }
+  tmp[right]=tmp[j];
+  tmp[j]=piwot;
+  if(left<(j-1))
+    quicksort(left,(j-1));
+  if((j+1)<right)
+    quicksort((j+1),right);
+}

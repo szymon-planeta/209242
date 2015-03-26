@@ -15,10 +15,20 @@ int main(){
    a.analyze("list",10,5);
   */
   /*
-  list_array a;
-   a.analyze("list_array*2",10,5);
+    list_array a;
+    a.analyze("list_array*2",10,5);
   */
+  list_array lista;
 
+  lista.test(100);
+  for(unsigned int i=0;i<lista.size();i++){
+    std::cout<<lista.tmp[i]<<std::endl;
+  }
+  std::cout<<"Wczytano!"<<std::endl;
+  lista.quicksort(0,lista.size()-1);
+  std::cout<<"Posortowano!"<<std::endl;
+  for(unsigned int i=0;i<lista.size();i++){
+    std::cout<<lista.tmp[i]<<std::endl;
+  }
   return 0;
-
 }
