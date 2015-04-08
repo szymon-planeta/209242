@@ -1,3 +1,4 @@
 warning: The selected output language "polish" has not been updated
 since release 1.8.2.  As a result some sentences may appear in English.
 
+warning: source ../prj/docs/img is not a readable file or directory... skipping.
