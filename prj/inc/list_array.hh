@@ -66,14 +66,45 @@ public:
   void test(unsigned long int length);
 
   /*!
-   * \brief Metoda quicksort(int left, int right) przeprowadza operację sortowania szybkiego.
+   * \brief Metoda quicksort(int left, int right) przeprowadza operację sortowania szybkiego (piwot to srodkowy element tablicy).
    *
    * Aby posortować całą tablicę, należy jako argumenty podać 0 i size()-1.
+   * quicksort(0,size()-1)
    *
    * \param[in] left - początek zakresu (pierwszy element) sortowania
    * \param[in] right - koniec zakresu (ostatni element) sortowania
    */
   void quicksort(int left, int right);
+
+
+  /*!
+   * \brief Metoda quicksort(int left, int right) przeprowadza operację sortowania szybkiego (piwot to pierwszy element tablicy).
+   *
+   * Aby posortować całą tablicę, należy jako argumenty podać 0 i size()-1.
+   * quicksort(0,size()-1)
+   *
+   * \param[in] left - początek zakresu (pierwszy element) sortowania
+   * \param[in] right - koniec zakresu (ostatni element) sortowania
+   */
+  void quicksort_left(int left, int right);
+
+ /*!
+   *\brief Metoda analyze zlicza czas wykonywania funkcji    *\param[in] name_output - nazwa pliku wynikowego
+   *\param[in] repeat - ilość powtórzeń testu  
+   *\param[in] data_amount - ilosc wynikowych danych podawana jako potega liczby 10
+   *\return plik.dat  z czasami poszczegolnych pomiarow oraz ilosc testowanych danych.
+   */   
+  
+  void analyze (const char *name_output,int repeat,int data_amount);
+
+  /*!
+   * \brief Procedura heapsort
+   *
+   * Przeprowadza opreację sortowania przez kopcowanie na całej liscie
+   */
+  void heapsort();
 };
+
+
 
 #endif

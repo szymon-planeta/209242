@@ -1,7 +1,7 @@
 #include"list_array.hh"
 /*!
 * \file
-* \brief Deklaracja klasy list
+* \brief Deklaracja klasy list_array
 * 
 */
 
@@ -248,4 +248,128 @@ void list_array::quicksort(int left, int right){
     quicksort(left,(j-1));
   if((j+1)<right)
     quicksort((j+1),right);
+}
+
+void list_array::quicksort_left(int left, int right){
+  int i=left;
+  int piwot=tmp[i];
+  int schowek;
+  int j=0;
+ 
+  tmp[i]=tmp[right];
+  tmp[right]=piwot;
+
+  for(j=i=left;i<right;i++){
+    if(tmp[i]<piwot){
+      schowek=tmp[i];
+      tmp[i]=tmp[j];
+      tmp[j]=schowek;
+      j++;
+    }
+  }
+  tmp[right]=tmp[j];
+  tmp[j]=piwot;
+  if(left<(j-1))
+    quicksort_left(left,(j-1));
+  if((j+1)<right)
+    quicksort_left((j+1),right);
+}
+
+
+void list_array::heapsort(){
+
+  if(size()>1){
+
+    int root, swap, child, val, start,end;
+
+    //heapify
+    start=(size()-2)/2;
+    while(start>=0){
+      //siftdown
+      root = start; end = size()-1;
+      while(((root*2)+1)<=end){
+	child = (root*2)+1; //left child
+	swap = root;      //remembers child
+	if(tmp[swap]<tmp[child])
+	  swap = child;
+	if(((child+1)<=end) && (tmp[swap]<tmp[child+1]))
+	  swap = child+1;
+	if(swap==root) break;
+	else{
+	  val=tmp[root];
+	  tmp[root]=tmp[swap];
+	  tmp[swap]=val;
+	  root=swap;
+	}
+      }
+      start--;
+    }
+    //
+    end=size()-1;
+    while(end>0){
+      val=tmp[end];
+      tmp[end]=tmp[0];
+      tmp[0]=val;
+      end--;
+      //siftdown
+      root = 0; 
+      while(root*2+1<=end){
+	child = root*2+1; //left child
+	swap = root;      //remembers child
+
+	if(tmp[swap]<tmp[child])
+	  swap = child;
+	if(child+1<=end && tmp[swap]<tmp[child+1])
+	  swap = child+1;
+	if(swap==root) break;
+	else{
+	  val=tmp[root];
+	  tmp[root]=tmp[swap];
+	  tmp[swap]=val;
+	  root=swap;
+	}
+      }
+    }
+  }
+}
+/*!
+ *\brief Metoda analyze zlicza czas fukcji quicksort()
+ *\n
+ Przykład wywołania funkcji : \n
+ analyze("Plik_wynikowy",100,7) -> Przeprowadza analize czesu trwania funkcji test() dla 1 miliona danych(ilość danych należy podać jako potęgę 10 ) , każdy czas trwania funkcji jest ustalany na podstawie średniej arytmetycznej ze 100 prób , wyniki zapisuje do pliku o nazwie Plik_wynikowy. \n
+ Uwaga! Aby zmienić tryb rozszerzania tablicy z dodawania 1 elemntu na mnożenie rozmiaru przez 2 należy odkomentować odpowiednie pole w funkcji list::array test() 
+*/
+void list_array::analyze (const char *name_output,int repeat,int data_amount)
+{
+  float *tab = new float [repeat];
+  std::fstream file(name_output,std::ios::out);
+  if ( file.fail() )
+    {
+      std::cerr <<"Failed to open file ";
+      exit(3);
+    }
+  
+  else
+    {
+      for(int j=0;j<=data_amount;j++)
+	{
+	  float tmp =0;
+	  for (int i=0 ;i<repeat;i++)
+	    {
+	      test(pow(10,j));
+	      clock_t begin_time = clock();
+	      {
+		//quicksort_left(0,size()-1);
+		//quicksort(0,size()-1);
+		heapsort();
+	      }
+	      tab[i]=float( clock()- begin_time ) / CLOCKS_PER_SEC;
+	      tmp+=tab[i];
+	    }
+	  tmp=tmp/repeat;
+	  file<<tmp<<" "<<pow(10,j)<<std::endl;
+	}
+    }
+  file.close();
+  delete [] tab;
 }
