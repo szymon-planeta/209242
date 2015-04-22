@@ -41,6 +41,12 @@ public:
    */
   void push(int insert,unsigned int where,unsigned int extend,char x);
   /*!
+   *\brief 
+   * Metoda dodaje element na koniec listy
+   *\param[in] insert - dodawany element
+   */
+  void push_back(int insert);  
+  /*!
    *\brief
    * Metoda pop() definiuje usuwanie elementu z listy
    *\param[in] whence - numer usuwanego elementu
@@ -78,7 +84,7 @@ public:
 
 
   /*!
-   * \brief Metoda quicksort(int left, int right) przeprowadza operację sortowania szybkiego (piwot to pierwszy element tablicy).
+   * \brief Metoda quicksort_left(int left, int right) przeprowadza operację sortowania szybkiego (piwot to pierwszy element tablicy).
    *
    * Aby posortować całą tablicę, należy jako argumenty podać 0 i size()-1.
    * quicksort(0,size()-1)
@@ -87,6 +93,17 @@ public:
    * \param[in] right - koniec zakresu (ostatni element) sortowania
    */
   void quicksort_left(int left, int right);
+
+ /*!
+   * \brief Metoda quicksort_med(int left, int right) przeprowadza operację sortowania szybkiego (piwot to mediana z trzech elementów: pierwszego, srodkowego i ostatniego). Podczas wybierania piwota, te trzy elementy zostaja posortowane.
+   *
+   * Aby posortować całą tablicę, należy jako argumenty podać 0 i size()-1.
+   * quicksort(0,size()-1)
+   *
+   * \param[in] left - początek zakresu (pierwszy element) sortowania
+   * \param[in] right - koniec zakresu (ostatni element) sortowania
+   */
+  void quicksort_med(int left, int right);
 
  /*!
    *\brief Metoda analyze zlicza czas wykonywania funkcji    *\param[in] name_output - nazwa pliku wynikowego
@@ -103,6 +120,13 @@ public:
    * Przeprowadza opreację sortowania przez kopcowanie na całej liscie
    */
   void heapsort();
+
+  /*!
+   * \brief Procedura clear
+   *
+   * Usuwa liste, ustawia rozmiar i ilosc elementow na 0, a wskaznik na NULL
+   */
+  void clear();
 };
 
 

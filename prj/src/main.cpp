@@ -12,20 +12,21 @@ int main(){
   //////////////////////////
   
   list_array lista;
-  lista.analyze("heap",1,5);
+  lista.analyze("mediana",1,7);
 
-  /*
-  lista.test(15);
+    
+  /*lista.test(50);
   for(unsigned int i=0;i<lista.size();i++){
     std::cout<<lista.tmp[i]<<std::endl;
   }
   std::cout<<"Wczytano!"<<std::endl;
-  lista.quicksort_left(0,14);
+  lista.quicksort_med(0,49);
   std::cout<<"Posortowano!"<<std::endl;
   for(unsigned int i=0;i<lista.size();i++){
     std::cout<<lista.tmp[i]<<std::endl;
   }
   */
+
   
   return 0;
 }

@@ -152,6 +152,31 @@ void list_array::push(int insert,unsigned int where,unsigned int extension,char 
 	}
 }
 
+/*******************************************/
+
+void list_array::push_back(int insert)
+{
+  if(temp==0){
+    tmp = new int [1];
+    temp=1;
+    n=1;
+    tmp[0]=insert;
+  }
+  else{
+    if(n<temp){
+      tmp[n++]=insert;
+    }
+    else{
+      int *x = new int[temp*2];
+      for(unsigned int i=0; i<n; i++)
+	x[i]=tmp[i];
+      delete [] tmp;
+      tmp = x;
+      tmp[n++]=insert;
+      temp*=2;
+    }
+  }
+}
   
 /*!
  *\brief Metoda pop() usuwa z listy ostatni/pierwszy element lub zwraca komunikat o błędzie w przypadku próby usnięcia elementu z pustej listy
@@ -216,38 +241,35 @@ void list_array::test(unsigned long int length)
     {
       for (unsigned long int i=1;i<=length;i++)
 	{
-	  file>>tmp;
-	  // tutaj należy zmienić implementacje
-	  push(tmp,0,2,'*'); // 2-krotne zwiększanie rozmiaru tablicy
-	  //push(tmp,0,1,'+'); // zwiększanie rozmiaru o 1
+	  file>>tmp;  
+	  push_back(tmp); // 2-krotne zwiększanie rozmiaru tablicy
 	}
       file.close();
    }
 }
 
 void list_array::quicksort(int left, int right){
-  int i=(right+left)/2;
-  int piwot=tmp[i];
+  int i=left;
+  int piwot=tmp[(left+right)/2];
   int schowek;
   int j=0;
- 
-  tmp[i]=tmp[right];
-  tmp[right]=piwot;
-
-  for(j=i=left;i<right;i++){
-    if(tmp[i]<piwot){
-      schowek=tmp[i];
-      tmp[i]=tmp[j];
-      tmp[j]=schowek;
-      j++;
+  i=left; j = right;
+  do{
+    while(tmp[i]<piwot) i++;
+    while(tmp[j]>piwot) j--;
+    if(i<=j){
+      schowek = tmp[i];
+      tmp[i] = tmp[j];
+      tmp[j] = schowek;
+      i++; j--;
     }
-  }
-  tmp[right]=tmp[j];
-  tmp[j]=piwot;
-  if(left<(j-1))
-    quicksort(left,(j-1));
-  if((j+1)<right)
-    quicksort((j+1),right);
+  }while(i<=j);
+  
+  
+  if(j>left)
+    quicksort(left,j);
+  if(i<right)
+    quicksort(i,right);
 }
 
 void list_array::quicksort_left(int left, int right){
@@ -255,26 +277,64 @@ void list_array::quicksort_left(int left, int right){
   int piwot=tmp[i];
   int schowek;
   int j=0;
- 
-  tmp[i]=tmp[right];
-  tmp[right]=piwot;
-
-  for(j=i=left;i<right;i++){
-    if(tmp[i]<piwot){
-      schowek=tmp[i];
-      tmp[i]=tmp[j];
-      tmp[j]=schowek;
-      j++;
+  i=left; j = right;
+  do{
+    while(tmp[i]<piwot) i++;
+    while(tmp[j]>piwot) j--;
+    if(i<=j){
+      schowek = tmp[i];
+      tmp[i] = tmp[j];
+      tmp[j] = schowek;
+      i++; j--;
     }
-  }
-  tmp[right]=tmp[j];
-  tmp[j]=piwot;
-  if(left<(j-1))
-    quicksort_left(left,(j-1));
-  if((j+1)<right)
-    quicksort_left((j+1),right);
+  }while(i<=j);
+  
+  
+  if(j>left)
+    quicksort_left(left,j);
+  if(i<right)
+    quicksort_left(i,right);
 }
 
+void list_array::quicksort_med(int left, int right){
+ int i=(right+left)/2;
+  int schowek=0;
+  int j=0;
+ 
+  if(tmp[right]<tmp[left]){
+    schowek=tmp[left];
+    tmp[left]=tmp[right];
+    tmp[right]=schowek;
+  }
+  if(tmp[i] < tmp[left]){
+    schowek=tmp[left];
+    tmp[left]=tmp[i];
+    tmp[i]=schowek;
+  }
+  if(tmp[right]<tmp[i]){
+    schowek=tmp[i];
+    tmp[i]=tmp[right];
+    tmp[right]=schowek;
+  }
+  int piwot=tmp[i];
+  i=left; j = right;
+  do{
+    while(tmp[i]<piwot) i++;
+    while(tmp[j]>piwot) j--;
+    if(i<=j){
+      schowek = tmp[i];
+      tmp[i] = tmp[j];
+      tmp[j] = schowek;
+      i++; j--;
+    }
+  }while(i<=j);
+  
+  
+  if(j>left)
+    quicksort_med(left,j);
+  if(i<right)
+    quicksort_med(i,right);
+}
 
 void list_array::heapsort(){
 
@@ -351,25 +411,37 @@ void list_array::analyze (const char *name_output,int repeat,int data_amount)
   
   else
     {
-      for(int j=0;j<=data_amount;j++)
-	{
-	  float tmp =0;
-	  for (int i=0 ;i<repeat;i++)
+      for(int j=1; j<=data_amount; j++){
+	float time=0;
+	for (int i=0 ;i<repeat;i++)
+	  {
+	    test(pow(10,j));
+	    clock_t begin_time = clock();
 	    {
-	      test(pow(10,j));
-	      clock_t begin_time = clock();
-	      {
-		//quicksort_left(0,size()-1);
-		//quicksort(0,size()-1);
-		heapsort();
-	      }
-	      tab[i]=float( clock()- begin_time ) / CLOCKS_PER_SEC;
-	      tmp+=tab[i];
+	      quicksort_med(0,size()-1);
+	      //quicksort_left(0,size()-1);
+	      //quicksort(0,size()-1);
+	      //heapsort();
+	      if(j==3)
+		std::cout<<tmp[0]<<" "<<tmp[1]<<" "<<tmp[1000]<<" "<<tmp[1002]<<std::endl;
 	    }
-	  tmp=tmp/repeat;
-	  file<<tmp<<" "<<pow(10,j)<<std::endl;
-	}
+	    tab[i]=float( clock()- begin_time ) / CLOCKS_PER_SEC;
+	    time+=tab[i];
+	  }
+	time=time/repeat;
+	file<<time<<" "<<pow(10,j)<<std::endl;
+	std::cout<<time<<" "<<pow(10,j)<<std::endl;
+      }
     }
   file.close();
   delete [] tab;
+  clear();
+}
+
+
+void list_array::clear(){
+  delete [] tmp;
+  temp = 0;
+  n = 0;
+  tmp = NULL;
 }
